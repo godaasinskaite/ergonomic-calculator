@@ -1,0 +1,21 @@
+<nav id="navbar-container" class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">Ergonomic Calculator</a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarNav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': !isCollapsed }" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/login-form" *ngIf="!isAuthenticated">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login-form">Register</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated" (click)="logOut()">
+          <a class="nav-link" (click)="logOut()">Log out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

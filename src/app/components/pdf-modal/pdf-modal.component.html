@@ -1,0 +1,25 @@
+<div class="modal fade" id="pdfModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-xl" role="document"> <!-- Added modal-xl for extra-large size -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Read This Before Moving Forward</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" (click)="onClickDelete()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: justify;">
+        <div>
+          <iframe [src]="pdfUrl" width="70%" height="70%" style="border: none;"></iframe>
+        </div>
+        <p>Measuring yourself precisely can be challenging, so <strong style="color: #FF4500;">assistance</strong> from another person would be beneficial.</p>
+        <p>Maintaining the correct posture and using the proper equipment is crucial for accurate measurements.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary custom-btn" data-bs-dismiss="modal" (click)="moveToRegistration()">Save Info</button>
+        <button type="button" class="btn btn-primary custom-btn" (click)="onDownloadPdfClick()">Download PDF</button>
+        <button type="button" class="btn btn-primary custom-btn" data-bs-dismiss="modal" (click)="onClickDelete()">Close</button>
+        <p *ngIf="isDownloadFailed">{{ downloadErrorMessage }}</p>
+      </div>
+    </div>
+  </div>
+</div>

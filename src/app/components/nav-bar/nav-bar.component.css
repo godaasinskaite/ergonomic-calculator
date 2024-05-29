@@ -1,0 +1,22 @@
+#navbar-container {
+    background-color: #F5F5F5;
+    width: 100%;
+    height: 9%;
+    font-weight: 550;
+    color: #3b3b3b;
+  }
+
+  .btn {
+    background-color: #0C3253ff;
+    border-color: #0C3253ff;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.custom-btn:hover {
+    background-color: #2C4C73ff;
+    border-color: #2C4C73ff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}

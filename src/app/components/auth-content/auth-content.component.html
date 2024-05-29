@@ -1,0 +1,48 @@
+<div class="auth-container">
+  <ul class="nav nav-pills nav-justified mb-3">
+    <li class="nav-item">
+      <button
+        class="nav-link btn btn-primary custom-btn"
+        [ngClass]="activeTab === 'password' ? 'active' : ''"
+        (click)="activeTab = 'password'"
+      >
+        Update Password
+      </button>
+    </li>
+    <li class="nav-item">
+      <button
+        class="nav-link btn btn-primary custom-btn"
+        [ngClass]="activeTab === 'anthropometrics' ? 'active' : ''"
+        (click)="activeTab = 'anthropometrics'"
+      >
+        Update Anthropometric Data
+      </button>
+    </li>
+    <li class="nav-item">
+      <button
+        class="nav-link btn btn-primary custom-btn"
+        [ngClass]="activeTab === 'workspace' ? 'active' : ''"
+        (click)="activeTab = 'workspace'"
+      >
+        Check Workspace
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div [ngSwitch]="activeTab">
+      <div *ngSwitchCase="'password'">
+        <app-password-update-form></app-password-update-form>
+      </div>
+      <div *ngSwitchCase="'anthropometrics'">
+        <app-anthropometrics-form></app-anthropometrics-form>
+      </div>
+      <div *ngSwitchCase="'workspace'">
+        <div>
+          <iframe [src]="pdfUrl" width="70%" height="70%" style="border: none;"></iframe>
+        </div>
+        <button class="btn btn-primary btn-custom" (click)="downloadPdf()">Download</button>
+      </div>
+    </div>
+  </div>
+</div>

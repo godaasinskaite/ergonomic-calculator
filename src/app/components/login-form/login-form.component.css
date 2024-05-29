@@ -1,0 +1,30 @@
+.btn {
+  background-color: #0C3253ff;
+  border-color: #0C3253ff;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+  .btn:hover,
+  .btn:focus,
+  .nav-link.active {
+    background-color: #2C4C73ff;
+    border-color: #2C4C73ff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  input {
+    border-radius: 50px;
+    background-color: white;
+  }
+
+  .custom-input:focus {
+    border-color: #E17638;
+    box-shadow: 0 0 0 0.25rem rgba(225, 118, 56, 0.25);
+  }
+
+  * {
+    background-color: #F5F5F5;
+  }

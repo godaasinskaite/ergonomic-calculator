@@ -1,0 +1,28 @@
+.modal-xl {
+    max-width: 60% !important; /* Increase max-width to 90% */
+  }
+  
+  .modal-body {
+    height: 80vh; /* Set height to 80% of the viewport height */
+  }
+
+  p, li{
+    color: #3b3b3b;
+    font-weight: 550;
+}
+
+.btn {
+  background-color: #0C3253ff;
+  border-color: #0C3253ff;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.custom-btn:hover {
+  background-color: #2C4C73ff;
+  border-color: #2C4C73ff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
