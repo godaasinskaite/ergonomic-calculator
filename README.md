@@ -1,27 +1,34 @@
-# ErgonomicCalculator
+# Ergonomic Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+### 🌟 Overview
+ This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+ 
+ It is an front-end interface of project: https://github.com/godaasinskaite/ErgonomicCalculator
 
-## Development server
+### 🚀 Features
+- Data Transmission: Transfers collected anthropometric data to back-end system for further calculations.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- PDF Retrieval: Retrieved generated PDF from back-end system and display for user to see or download.
 
-## Code scaffolding
+- Login and Registration: Integrates authentication mechanisms to provide access to personalized features.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Responsive Design: user-friendly experience.
 
-## Build
+### 🛠️ Technologies Used
+- Angular
+- Bootstrap
+- Angular Router
+- HttpClient
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ #### Back-end part of this project is built with Java and Spring Boot amongst with other technologies. For more information: https://github.com/godaasinskaite/ergonomic-calculator
 
-## Running unit tests
+ ## 🎓 Credits:
+ I am deeply grateful for the guidance and support from my mentor, Edvinas Prokofijovas, throughout this final project, which marks the results of my software development course at https://www.kodokelias.lt/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Development Commands
+Start Development Server: Run ng serve and navigate to http://localhost:4200/. Changes to source files will trigger automatic reloading.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Code Generation: Use ng generate to scaffold new components, directives, pipes, services, classes, guards, interfaces, enums, or modules.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Build Project: Run ng build to compile the project. Built artifacts will be stored in the dist/ directory.
