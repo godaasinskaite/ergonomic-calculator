@@ -1,4 +1,4 @@
-export interface Anthropometrics {
+export interface AnthropometricsUpdate {
   height: string;
   sittingHeight: string;
   shoulderHeight: string;
@@ -11,5 +11,4 @@ export interface Anthropometrics {
   eyeHeight: string;
   shoulderBreadth: string;
   kneeHeight: string;
-  personEmail: string;
 }

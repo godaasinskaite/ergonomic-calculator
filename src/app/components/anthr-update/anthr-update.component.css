@@ -1,14 +1,13 @@
-p,
-li {
-    color: #3b3b3b;
-    font-weight: 550;
+input {
+    border-radius: 50px;
+    width: 5.4%;
+    height: 7%;
+    font-size: smaller;
 }
 
 .btn {
     background-color: #0C3253ff;
     border-color: #0C3253ff;
-    padding-left: 20px;
-    padding-right: 20px;
     font-weight: 600;
     border-radius: 20px;
 }

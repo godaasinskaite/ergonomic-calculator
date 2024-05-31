@@ -4,12 +4,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  styleUrl: './homepage.component.css',
 })
 export class HomepageComponent {
-
-  constructor (private router: Router) {}
-
+  constructor(private router: Router) {}
 
   moveToCalculator() {
     this.router.navigate(['/anthropometric-form']);

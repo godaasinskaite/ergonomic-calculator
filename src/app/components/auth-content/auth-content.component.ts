@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from '@angular/core'; 
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
 import { AnthropometricsService } from '../../services/anthropometrics.service';
-import { PersonService } from '../../services/person.service';
 
 @Component({
   selector: 'app-auth-content',
   templateUrl: './auth-content.component.html',
-  styleUrl: './auth-content.component.css'
+  styleUrl: './auth-content.component.css',
 })
-export class AuthContentComponent implements OnInit {
-
+export class AuthContentComponent {
   activeTab: string = 'password';
   pdfUrl: any;
   personEmail!: string;
 
-  constructor(private anthropometricsService: AnthropometricsService, private sanitizer: DomSanitizer, private route: ActivatedRoute) {}
+  constructor(
+    private anthropometricsService: AnthropometricsService,
+    private sanitizer: DomSanitizer
+  ) {}
+
   ngOnInit(): void {
     this.getPdf();
   }
@@ -28,18 +28,20 @@ export class AuthContentComponent implements OnInit {
         const url = URL.createObjectURL(blob);
         this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
       },
-      error => {
+      (error) => {
         console.error('Error fetching PDF:', error);
       }
     );
   }
 
   downloadPdf() {
-    console.log('trying to download pdf')
-    this.anthropometricsService.downloadPdfAfterAuth().then(() => {
-      console.log('PDF downloaded successfully');
-    }).catch(error => {
-      console.error('Failed to download PDF:', error);
-    });
+    this.anthropometricsService
+      .downloadPdfAfterAuth()
+      .then(() => {
+        console.log('PDF downloaded successfully');
+      })
+      .catch((error) => {
+        console.error('Failed to download PDF:', error);
+      });
   }
 }

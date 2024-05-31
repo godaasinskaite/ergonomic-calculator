@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { InfoModalComponent } from './components/info-modal/info-modal.component';
 import { PdfModalComponent } from './components/pdf-modal/pdf-modal.component';
 import { PasswordUpdateFormComponent } from './components/password-update-form/password-update-form.component';
+import { AnthrUpdateComponent } from './components/anthr-update/anthr-update.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PasswordUpdateFormComponent } from './components/password-update-form/p
     FooterComponent,
     InfoModalComponent,
     PdfModalComponent,
-    PasswordUpdateFormComponent
+    PasswordUpdateFormComponent,
+    AnthrUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -9,9 +9,7 @@ import { PersonService } from '../../services/person.service';
   styleUrl: './password-update-form.component.css',
 })
 export class PasswordUpdateFormComponent {
-  oldPassword: string = '';
-  newPassword: string = '';
-  confirmPassword: string = '';
+  errorMessage!: string;
 
   constructor(private service: PersonService) {}
 
@@ -30,19 +28,21 @@ export class PasswordUpdateFormComponent {
         this.service.updatePassword(passwordRequest).subscribe(
           (response) => {
             console.log('Password updated successfully:', response);
+            form.reset();
+            this.errorMessage = '';
           },
           (error) => {
             console.error('Error updating password:', error);
+            if (error.status === 406) {
+              this.errorMessage = 'Incorrect old password';
+            } else {
+              this.errorMessage = 'An error occurred while updating password';
+            }
           }
         );
+      } else {
+        this.errorMessage = 'Passwords do not match';
       }
     }
-  }
-
-  passwordsMatch(): boolean {
-    return (
-      this.oldPassword !== this.newPassword &&
-      this.newPassword === this.confirmPassword
-    );
   }
 }

@@ -1,19 +1,54 @@
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80%;
+  width: 100%;
+}
+
 input {
-    border-radius: 50px;
-    width: 5.4%;
-    height: 7%;
-    font-size: smaller;
+  border-radius: 50px;
+  width: 5.4%;
+  height: 7%;
+  font-size: smaller;
 }
 
 .btn {
-    background-color: #0C3253ff;
-    border-color: #0C3253ff;
-    font-weight: 600;
-    border-radius: 20px;
+  background-color: #0C3253ff;
+  border-color: #0C3253ff;
+  font-weight: 600;
+  border-radius: 20px;
 }
 
 .custom-btn:hover {
-    background-color: #2C4C73ff;
-    border-color: #2C4C73ff;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #2C4C73ff;
+  border-color: #2C4C73ff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pulse {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
 }

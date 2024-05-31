@@ -1,47 +1,66 @@
 <div class="auth-container">
-  <ul class="nav nav-pills nav-justified mb-3">
-    <li class="nav-item">
-      <button
-        class="nav-link btn btn-primary custom-btn"
-        [ngClass]="activeTab === 'password' ? 'active' : ''"
-        (click)="activeTab = 'password'"
-      >
-        Update Password
-      </button>
-    </li>
-    <li class="nav-item">
-      <button
-        class="nav-link btn btn-primary custom-btn"
-        [ngClass]="activeTab === 'anthropometrics' ? 'active' : ''"
-        (click)="activeTab = 'anthropometrics'"
-      >
-        Update Anthropometric Data
-      </button>
-    </li>
-    <li class="nav-item">
-      <button
-        class="nav-link btn btn-primary custom-btn"
-        [ngClass]="activeTab === 'workspace' ? 'active' : ''"
-        (click)="activeTab = 'workspace'"
-      >
-        Check Workspace
-      </button>
-    </li>
-  </ul>
+  <div class="container">
+    <ul class="nav nav-pills nav-justified mb-3 custom-nav">
+      <li class="nav-item">
+        <button
+          class="nav-link btn btn-primary custom-btn"
+          [ngClass]="activeTab === 'password' ? 'active' : ''"
+          (click)="activeTab = 'password'"
+        >
+          Password
+        </button>
+      </li>
+      <li class="nav-item">
+        <button
+          class="nav-link btn btn-primary custom-btn"
+          [ngClass]="activeTab === 'anthropometrics' ? 'active' : ''"
+          (click)="activeTab = 'anthropometrics'"
+        >
+          Anthropometrics
+        </button>
+      </li>
+      <li class="nav-item">
+        <button
+          class="nav-link btn btn-primary custom-btn"
+          [ngClass]="activeTab === 'workspace' ? 'active' : ''"
+          (click)="activeTab = 'workspace'"
+          (click)="getPdf()"
+        >
+          Workspace
+        </button>
+      </li>
+    </ul>
 
-  <div class="tab-content">
-    <div [ngSwitch]="activeTab">
-      <div *ngSwitchCase="'password'">
-        <app-password-update-form></app-password-update-form>
-      </div>
-      <div *ngSwitchCase="'anthropometrics'">
-        <app-anthropometrics-form></app-anthropometrics-form>
-      </div>
-      <div *ngSwitchCase="'workspace'">
-        <div>
-          <iframe [src]="pdfUrl" width="70%" height="70%" style="border: none;"></iframe>
+    <div class="tab-content">
+      <div [ngSwitch]="activeTab">
+        <div *ngSwitchCase="'password'">
+          <app-password-update-form></app-password-update-form>
         </div>
-        <button class="btn btn-primary btn-custom" (click)="downloadPdf()">Download</button>
+        <div *ngSwitchCase="'anthropometrics'">
+          <app-anthr-update></app-anthr-update>
+          
+        </div>
+        <div *ngSwitchCase="'workspace'" class="pdf-container">
+          <ng-container *ngIf="pdfUrl; else errorText">
+            <div style="display: flex; align-items: center; justify-content: space-between; min-height: 70vh;">
+              <iframe [src]="pdfUrl" style="flex: 1; min-width: 70%; min-height: 70vh;"></iframe>
+              <div style="display: flex; flex-direction: column; align-items: center; margin-left: 20px;">
+                <button class="btn btn-primary btn-custom" (click)="downloadPdf()" style="margin-bottom: 10px; width: 150px;">Download</button>
+                <button class="btn btn-primary btn-custom" style="margin-bottom: 10px; width: 150px;">
+                  <a [href]="pdfUrl" target="_blank" style="text-decoration: none; color: white; display: block; width: 100%; height: 100%;">Open</a>
+                </button>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #errorText>
+            <div class="center-container" style="text-align: center; margin-top: 50px;">
+              <p>
+                <a (click)="activeTab = 'anthropometrics'" style="color: red; text-decoration: underline; font-weight: bold;">Click Here  </a>
+                <span style="color: #000080; font-weight: bold;">and provide your anthropometric measures to generate your ergonomic workplace.</span>
+              </p>
+            </div>
+          </ng-template>
+      </div>
       </div>
     </div>
   </div>

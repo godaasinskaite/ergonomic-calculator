@@ -3,22 +3,12 @@
     id="anthr-form"
     style="position: relative; max-width: 1000px; margin: auto"
   >
-  <div>
-    <button
-      type="button"
-      class="btn btn-primary btn-sm custom-btn"
-      data-bs-toggle="modal"
-      data-bs-target="#infoModal"
-    >
-      * Read Instructions
-    </button>
-  </div>
-  <app-info-modal></app-info-modal>
+    <div></div>
     <div style="position: relative">
       <img
         src="assets/measure-img.png"
         alt="Your Image"
-        style="display: block; width: 100%; max-width: 1000px"
+        style="display: block; width: 100%; max-width: 950px"
       />
       <form
         (ngSubmit)="onSubmit(form)"
@@ -141,21 +131,32 @@
   </div>
 </div>
 
-<div *ngIf="readyForPdf">
-  <button
-    type="button"
-    class="btn btn-primary custom-btn"
-    data-bs-toggle="modal"
-    data-bs-target="#pdfModal"
-    (click)="getPdf(emailToIdentify)"
-  >
-    Open PDF Modal
-  </button>
+<button
+  type="button"
+  class="btn btn-primary btn-sm custom-btn"
+  data-bs-toggle="modal"
+  data-bs-target="#infoModal"
+  style="position: fixed; top: 10%; left: 45%"
+>
+  * Read Instructions
+</button>
+<app-info-modal></app-info-modal>
+
+<div>
+  <div class="overlay" *ngIf="readyForPdf">
+    <button
+      type="button"
+      class="btn btn-primary btn-lg custom-btn pulse"
+      data-bs-toggle="modal"
+      data-bs-target="#pdfModal"
+      (click)="getPdf(emailToIdentify)"
+    >
+      See Results!
+    </button>
+  </div>
   <div>
     <app-pdf-modal
       [pdfUrl]="pdfUrl"
-      [isDownloadFailed]="isDownloadFailed"
-      [downloadErrorMessage]="dowloadErrorMessage"
       (downloadPdfClicked)="downloadPdf()"
       (deletePersonClicked)="deleteOnClose()"
     ></app-pdf-modal>

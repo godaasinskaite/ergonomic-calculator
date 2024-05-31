@@ -1,14 +1,10 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
-  isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
   constructor() { }
 
@@ -32,13 +28,11 @@ export class AuthService {
     });
   }
 
-
   onLogOut() {
-    this.isAuthenticatedSubject.next(false);
-    localStorage.removeItem('token');
+    localStorage.removeItem('auth_token');
   }
 
-  isLoggedIn(): boolean {
-    return this.isAuthenticatedSubject.value;
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('auth_token');
   }
 }

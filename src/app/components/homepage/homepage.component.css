@@ -1,28 +1,33 @@
 .homepage-container {
     background-color: #F5F5F5;
     padding: 50px;
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
     height: 80%;
+    width: 100%;
 }
-
-h2 {
+  
+  h2 {
     color: #3b3b3b;
     font-weight: 700;
-}
-
-h5 {
+  }
+  
+  h5 {
     color: #444444;
     font-weight: 550;
     line-height: 1.4;
     text-align: justify;
     margin-top: 15px;
-}
-
-.vertical-center {
+  }
+  
+  .vertical-center {
     display: flex;
     align-items: center;
-}
-
-.btn {
+  }
+  
+  .btn {
     min-width: 30px;
     font-size: large;
     background-color: #0C3253ff;
@@ -31,10 +36,11 @@ h5 {
     padding-right: 20px;
     font-weight: 600;
     border-radius: 20px;
-}
-
-.custom-btn:hover {
+  }
+  
+  .custom-btn:hover {
     background-color: #2C4C73ff;
     border-color: #2C4C73ff;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  }
+  

@@ -1,24 +1,83 @@
 <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-xl" role="document"> <!-- Added modal-xl for extra-large size -->
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Read This Before Moving Forward</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" (click)="onClickDelete()">
+        <button
+          type="button"
+          class="close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="onClickDelete()"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" style="text-align: justify;">
-        <div>
-          <iframe [src]="pdfUrl" width="70%" height="70%" style="border: none;"></iframe>
+      <div style="width: 100%; max-width: 800px; padding-top: 20px">
+        <p
+          style="
+            font-size: small;
+            font-style: italic;
+            line-height: 0.9;
+            word-wrap: break-word;
+            margin-left: 20px;
+          "
+        >
+          If you want to save your results, create an account by clicking SAVE
+          down below.
+        </p>
+        <p
+          style="
+            font-size: small;
+            font-style: italic;
+            line-height: 0.9;
+            word-wrap: break-word;
+            margin-left: 20px;
+          "
+        >
+          If you made a mistake, you can update your measures after you
+          register, or simply try again.
+        </p>
+        <div
+          class="modal-body"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+          "
+        >
+          <div class="pdf-container" style="width: 100%; max-width: 800px">
+            <iframe
+              [src]="pdfUrl"
+              style="width: 100%; min-height: 70vh"
+            ></iframe>
+          </div>
         </div>
-        <p>Measuring yourself precisely can be challenging, so <strong style="color: #FF4500;">assistance</strong> from another person would be beneficial.</p>
-        <p>Maintaining the correct posture and using the proper equipment is crucial for accurate measurements.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary custom-btn" data-bs-dismiss="modal" (click)="moveToRegistration()">Save Info</button>
-        <button type="button" class="btn btn-primary custom-btn" (click)="onDownloadPdfClick()">Download PDF</button>
-        <button type="button" class="btn btn-primary custom-btn" data-bs-dismiss="modal" (click)="onClickDelete()">Close</button>
-        <p *ngIf="isDownloadFailed">{{ downloadErrorMessage }}</p>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary custom-btn"
+            data-bs-dismiss="modal"
+            (click)="moveToRegistration()"
+          >
+            Save Info
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary custom-btn"
+            (click)="onDownloadPdfClick()"
+          >
+            Download PDF
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary custom-btn"
+            data-bs-dismiss="modal"
+            (click)="onClickDelete()"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   </div>

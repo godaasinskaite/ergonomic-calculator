@@ -20,7 +20,7 @@ export class PersonService {
         tap((response) => {
           if (response && response.token) {
             this.authService.setAuthToken(response.token);
-            this.authService.isAuthenticatedSubject.next(true);
+            this.authService.isAuthenticated();
           }
         })
       );
@@ -33,7 +33,7 @@ export class PersonService {
         tap((response) => {
           if (response && response.token) {
             this.authService.setAuthToken(response.token);
-            this.authService.isAuthenticatedSubject.next(true);
+            this.authService.isAuthenticated();
           }
         })
       );
